@@ -9,6 +9,7 @@ function ForecastSummaries({ forecasts }) {
     <div className="forecast-summaries">
       {forecasts.map((forecast) => (
         <ForecastSummary
+          key={forecast.date}
           date={forecast.date}
           description={forecast.description}
           icon={forecast.icon}
@@ -21,8 +22,8 @@ function ForecastSummaries({ forecasts }) {
 
 export default ForecastSummaries;
 
-ForecastSummaries.prototype = {
-  forecast: PropTypes.arrayOf(
+ForecastSummaries.propTypes = {
+  forecasts: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired,
@@ -31,6 +32,6 @@ ForecastSummaries.prototype = {
         min: PropTypes.number,
         max: PropTypes.number,
       }),
-    })
+    }),
   ).isRequired,
 };
