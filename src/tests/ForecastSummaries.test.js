@@ -25,24 +25,25 @@ describe("ForecastSummaries", () => {
         },
       },
     ],
-    onForecastSelect: () => {},
   };
+
   it("renders correctly", () => {
     const { asFragment } = render(
       <ForecastSummaries
         forecasts={validProps.forecasts}
         onForecastSelect={validProps.onForecastSelect}
-      />
+      />,
     );
     expect(asFragment()).toMatchSnapshot();
   });
+
   it("renders the correct number of ForecastSummary instances", () => {
     const { getAllByTestId } = render(
       <ForecastSummaries
         forecasts={validProps.forecasts}
-        onForecastSelect={validProps.onSelect}
-      />
+        onForecastSelect={validProps.onForecastSelect}
+      />,
     );
-    expect(getAllByTestId("forecast-summary").toHaveLength(2));
+    expect(getAllByTestId("forecast-summary")).toHaveLength(2);
   });
 });
