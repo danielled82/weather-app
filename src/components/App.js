@@ -10,16 +10,14 @@ function App({ forecasts, location }) {
   return (
     <div className="weather-app">
       <LocationDetails city={location.city} country={location.country} />
-      <ForecastSummaries forecasts={forecasts}/>
-      <ForecastDetails 
-      humidity={forecast[0].humidity}
-      direction={forecasts[0].direction}
-      windspeed={forecasts[0].windspeed}
-      date={forecasts[0].date
-        
-      }
+      <ForecastSummaries forecasts={forecasts} />
+      <ForecastDetails
+        humidity={forecasts[0].humidity}
+        direction={forecasts[0].direction}
+        windspeed={forecasts[0].windspeed}
+        date={forecasts[0].date}
       />
-    <div/>
+    </div>
   );
 }
 
@@ -35,7 +33,7 @@ App.propTypes = {
         max: PropTypes.number,
         min: PropTypes.number,
       }),
-    })
+    }),
   ).isRequired,
   location: PropTypes.shape({
     city: PropTypes.string,
