@@ -32,6 +32,6 @@ ForecastSummaries.propTypes = {
         min: PropTypes.number,
         max: PropTypes.number,
       }),
-    }),
+    })
   ).isRequired,
 };

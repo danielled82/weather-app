@@ -13,9 +13,10 @@ function App({ forecasts, location }) {
       <ForecastSummaries forecasts={forecasts} />
       <ForecastDetails
         humidity={forecasts[0].humidity}
-        direction={forecasts[0].direction}
-        windspeed={forecasts[0].windspeed}
+        direction={forecasts[0].wind.direction}
+        windspeed={forecasts[0].wind.speed}
         date={forecasts[0].date}
+        temperature={forecasts[0].temperature}
       />
     </div>
   );
@@ -29,11 +30,16 @@ App.propTypes = {
       date: PropTypes.number,
       description: PropTypes.string,
       icon: PropTypes.string,
+      humidity: PropTypes.number,
+      wind: PropTypes.shape({
+        direction: PropTypes.string,
+        speed: PropTypes.number,
+      }),
       temperature: PropTypes.shape({
         max: PropTypes.number,
         min: PropTypes.number,
       }),
-    }),
+    })
   ).isRequired,
   location: PropTypes.shape({
     city: PropTypes.string,
